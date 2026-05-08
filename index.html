@@ -14,19 +14,21 @@
 <meta property="og:title" content="Simon Arias — Grit. Growth. Giving.">
 <meta property="og:description" content="Founder of Arias Agencies. Founder of Steel City Impact. Host of GRINDcast. Self-made from a Youngstown neighborhood — built nationwide.">
 <meta property="og:url" content="https://andrei170.github.io/simon-arias-demo/">
-<meta property="og:image" content="https://andrei170.github.io/simon-arias-demo/photos/about-1.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="https://andrei170.github.io/simon-arias-demo/photos/horz-1.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
 <meta property="profile:first_name" content="Simon">
 <meta property="profile:last_name" content="Arias">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Simon Arias — Grit. Growth. Giving.">
 <meta name="twitter:description" content="Speaker. Mentor. Founder of Arias Agencies and Steel City Impact. Host of GRINDcast.">
-<meta name="twitter:image" content="https://andrei170.github.io/simon-arias-demo/photos/about-1.jpg">
+<meta name="twitter:image" content="https://andrei170.github.io/simon-arias-demo/photos/horz-1.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.youtube.com">
+<link rel="preconnect" href="https://i.ytimg.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
@@ -36,11 +38,12 @@
   "name": "Simon Arias",
   "alternateName": "Simon Anthony Arias III",
   "description": "Self-made entrepreneur, motivational speaker, and founder of Arias Agencies — American Income Life's largest U.S. distribution center. Founder of Steel City Impact and host of the GRINDcast podcast.",
-  "image": "https://andrei170.github.io/simon-arias-demo/photos/about-1.jpg",
+  "image": "https://andrei170.github.io/simon-arias-demo/photos/horz-1.jpg",
   "url": "https://andrei170.github.io/simon-arias-demo/",
   "sameAs": [
     "https://www.linkedin.com/in/simonarias",
     "https://www.youtube.com/c/SimonArias",
+    "https://www.instagram.com/simonarias/",
     "https://simon-arias.com/",
     "https://simonarias.net/"
   ],
@@ -201,7 +204,7 @@
     --steel-deep: #4a5a6b;
     --burgundy: #5a1e1e;
     --cream: #ede6d8;
-    --cream-dim: #a39c8e;
+    --cream-dim: #b3ada0;
     --muted: #6b6657;
     --line: rgba(200, 154, 79, 0.18);
     --line-strong: rgba(200, 154, 79, 0.42);
@@ -253,7 +256,7 @@
   }
   .section-head h2 {
     font-family: var(--display);
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(34px, 5vw, 64px);
     font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.05;
@@ -263,7 +266,7 @@
   .section-head h2 em { font-style: italic; font-variation-settings: "SOFT" 80, "WONK" 1; color: var(--brass); }
 
   section { padding: 120px 0; position: relative; }
-  @media (max-width: 720px) { section { padding: 80px 0; } }
+  @media (max-width: 720px) { section { padding: 72px 0; } }
 
   /* HEADER */
   header.site-header {
@@ -278,6 +281,7 @@
     padding: 16px 32px;
     max-width: 1440px; margin: 0 auto;
   }
+  @media (max-width: 720px) { .site-header .row { padding: 14px 20px; } }
   .brand { display: flex; align-items: center; gap: 12px; }
   .brand-mark {
     width: 38px; height: 38px; border-radius: 50%;
@@ -335,8 +339,8 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background-image: url('photos/about-1.jpg');
-    background-size: cover; background-position: center 30%;
+    background-image: url('photos/horz-1.jpg');
+    background-size: cover; background-position: center;
     animation: kenBurns 30s ease-in-out infinite alternate;
     will-change: transform;
   }
@@ -347,13 +351,14 @@
   .hero-overlay {
     position: absolute; inset: 0;
     background:
-      linear-gradient(180deg, rgba(12, 14, 18, 0.55) 0%, rgba(12, 14, 18, 0.78) 60%, rgba(12, 14, 18, 0.95) 100%),
-      linear-gradient(95deg, rgba(12, 14, 18, 0.7) 0%, rgba(12, 14, 18, 0.2) 100%);
+      linear-gradient(180deg, rgba(12, 14, 18, 0.4) 0%, rgba(12, 14, 18, 0.78) 60%, rgba(12, 14, 18, 0.96) 100%),
+      linear-gradient(95deg, rgba(12, 14, 18, 0.65) 0%, rgba(12, 14, 18, 0.15) 100%);
   }
   .hero-content {
     position: relative; z-index: 2;
     max-width: 1100px; padding: 0 32px; width: 100%;
   }
+  @media (max-width: 720px) { .hero-content { padding: 0 20px; } }
   .hero-eyebrow {
     color: var(--brass);
     font-size: 11px; font-weight: 600; letter-spacing: 0.28em;
@@ -364,7 +369,7 @@
   .hero-eyebrow::before { content: ''; display: inline-block; width: 36px; height: 1px; background: var(--brass); }
   .hero h1 {
     font-family: var(--display);
-    font-size: clamp(52px, 9vw, 124px);
+    font-size: clamp(42px, 9vw, 124px);
     font-weight: 500; letter-spacing: -0.025em; line-height: 0.97;
     margin: 0 0 36px;
   }
@@ -375,10 +380,30 @@
     margin-bottom: 44px; padding: 24px 0;
     border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
   }
+  @media (max-width: 720px) { .hero-meta { gap: 24px; padding: 20px 0; margin-bottom: 32px; } }
   .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
   .hero-meta-item .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-dim); }
   .hero-meta-item .value { font-family: var(--display); font-size: 18px; color: var(--cream); font-weight: 500; }
   .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .play-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 22px;
+    border: 1px solid var(--line-strong);
+    background: rgba(12, 14, 18, 0.4);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    color: var(--cream);
+    font-family: var(--sans); font-size: 13px;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+  .play-btn:hover { border-color: var(--brass); color: var(--brass); }
+  .play-btn .play-icon {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--brass); color: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; padding-left: 2px;
+  }
   .hero-scroll-hint {
     position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     color: var(--cream-dim); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
@@ -409,82 +434,90 @@
   .marquee-item {
     font-family: var(--display); font-style: italic;
     font-variation-settings: "SOFT" 80, "WONK" 1;
-    font-size: clamp(24px, 3vw, 38px);
+    font-size: clamp(22px, 3vw, 38px);
     color: var(--cream-dim); letter-spacing: -0.01em;
   }
   .marquee-item .star { color: var(--brass); margin: 0 28px; font-style: normal; }
   @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  /* DIFFERENTIATOR */
-  .diff-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border: 1px solid var(--line);
-    background: var(--bg-elevated);
-  }
-  @media (max-width: 1024px) { .diff-grid { grid-template-columns: 1fr; } }
-  .diff-cell {
-    padding: 56px 40px;
-    border-right: 1px solid var(--line);
-    transition: background 0.4s ease;
-  }
-  .diff-cell:last-child { border-right: none; }
-  @media (max-width: 1024px) {
-    .diff-cell { border-right: none; border-bottom: 1px solid var(--line); }
-    .diff-cell:last-child { border-bottom: none; }
-  }
-  .diff-cell:hover { background: rgba(200, 154, 79, 0.04); }
-  .diff-num {
-    font-family: var(--display); font-style: italic;
-    font-variation-settings: "SOFT" 80, "WONK" 1;
-    font-size: 14px; color: var(--brass);
-    margin-bottom: 24px;
-  }
-  .diff-cell h3 {
-    font-family: var(--display); font-size: 28px; font-weight: 500;
-    letter-spacing: -0.01em; line-height: 1.15;
-    margin: 0 0 18px;
-  }
-  .diff-cell p { color: var(--cream-dim); line-height: 1.7; margin: 0; }
-
-  /* SIGNATURE — GRIT GROWTH GIVING */
-  .signature {
-    background: var(--bg-elevated);
+  /* ABOUT (merged differentiator + trinity) */
+  .about-merged {
+    background: var(--bg);
     position: relative; overflow: hidden;
   }
-  .signature::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at top, rgba(200, 154, 79, 0.08) 0%, transparent 60%);
-    pointer-events: none;
+  .about-intro {
+    max-width: 900px;
+    margin-bottom: 80px;
   }
-  .trinity {
+  .about-intro p {
+    font-family: var(--display);
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.45;
+    color: var(--cream);
+    font-weight: 400;
+    margin: 0;
+  }
+  .about-intro p em { font-style: italic; font-variation-settings: "SOFT" 80, "WONK" 1; color: var(--brass); }
+
+  .triad {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 1px; background: var(--line);
-    margin-top: 64px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
-  @media (max-width: 1024px) { .trinity { grid-template-columns: 1fr; } }
-  .trinity-cell {
-    background: var(--bg-elevated);
-    padding: 56px 44px;
+  @media (max-width: 1024px) { .triad { grid-template-columns: 1fr; } }
+  .triad-cell {
+    background: var(--bg);
+    padding: 56px 40px;
     position: relative;
+    transition: background 0.4s ease;
   }
-  .trinity-letter {
-    font-family: var(--display);
-    font-size: clamp(120px, 16vw, 220px);
-    font-weight: 500;
-    letter-spacing: -0.04em;
-    line-height: 0.85;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--brass);
-    margin-bottom: 32px;
-  }
-  .trinity-cell h3 {
-    font-family: var(--display); font-size: 30px; font-weight: 500;
-    letter-spacing: -0.01em; margin: 0 0 16px; color: var(--cream);
-  }
-  .trinity-cell h3 em { font-style: italic; font-variation-settings: "SOFT" 80, "WONK" 1; color: var(--brass); }
-  .trinity-cell p { color: var(--cream-dim); margin: 0; line-height: 1.75; }
+  .triad-cell:hover { background: var(--bg-elevated); }
+  @media (max-width: 720px) { .triad-cell { padding: 44px 28px; } }
 
-  /* WORK / PILLARS */
+  .triad-word {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "SOFT" 80, "WONK" 1;
+    font-size: clamp(48px, 6vw, 86px);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    background: linear-gradient(180deg, var(--brass) 0%, var(--brass-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .triad-cell:nth-child(2) .triad-word {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dim) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .triad-cell:nth-child(3) .triad-word {
+    background: linear-gradient(180deg, var(--steel) 0%, var(--steel-deep) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .triad-stat {
+    font-family: var(--display);
+    font-size: 13px; color: var(--cream-dim);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .triad-stat::before {
+    content: ''; width: 28px; height: 1px;
+    background: var(--brass);
+  }
+  .triad-cell h3 {
+    font-family: var(--display); font-size: 22px; font-weight: 500;
+    letter-spacing: -0.01em; line-height: 1.25;
+    margin: 0 0 16px; color: var(--cream);
+  }
+  .triad-cell p { color: var(--cream-dim); line-height: 1.7; margin: 0; font-size: 15.5px; }
+
+  /* WORK */
   .work-grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
     gap: 32px;
@@ -530,11 +563,114 @@
     font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
     text-transform: uppercase; color: var(--brass);
     display: inline-flex; align-items: center; gap: 8px;
+    background: none; border: none; padding: 0; cursor: pointer;
+    font-family: var(--sans);
   }
 
-  /* IMPACT (Steel City) */
-  .impact {
+  /* GRINDCAST FEATURED VIDEO */
+  .grindcast {
     background: var(--bg-elevated);
+    position: relative; overflow: hidden;
+  }
+  .grindcast::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at top right, rgba(200, 154, 79, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .video-wrap {
+    position: relative; width: 100%;
+    aspect-ratio: 16/9; overflow: hidden;
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    margin: 0 0 56px;
+    cursor: pointer;
+  }
+  .video-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+  }
+  .video-wrap:hover img { transform: scale(1.03); filter: brightness(0.9); }
+  .video-wrap iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  }
+  .video-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, rgba(12, 14, 18, 0.2) 0%, rgba(12, 14, 18, 0.55) 100%);
+    transition: opacity 0.3s ease;
+  }
+  .video-wrap.playing .video-overlay { opacity: 0; pointer-events: none; }
+  .video-play {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: var(--brass); color: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; padding-left: 6px;
+    border: none; cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(200, 154, 79, 0.5);
+    animation: playPulse 2.4s ease-out infinite;
+    transition: transform 0.3s ease;
+  }
+  .video-wrap:hover .video-play { transform: scale(1.08); }
+  @keyframes playPulse {
+    0% { box-shadow: 0 0 0 0 rgba(200, 154, 79, 0.5); }
+    100% { box-shadow: 0 0 0 28px rgba(200, 154, 79, 0); }
+  }
+  .video-meta {
+    position: absolute; bottom: 24px; left: 28px; right: 28px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    color: var(--cream); pointer-events: none;
+  }
+  @media (max-width: 720px) { .video-meta { left: 18px; right: 18px; bottom: 18px; } }
+  .video-meta-title {
+    font-family: var(--display); font-size: clamp(20px, 2.4vw, 32px);
+    font-weight: 500; letter-spacing: -0.01em; line-height: 1.15;
+    max-width: 70%;
+  }
+  .video-meta-side {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--brass);
+  }
+
+  .episode-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  @media (max-width: 1024px) { .episode-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 720px) { .episode-grid { grid-template-columns: 1fr; } }
+  .ep-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    overflow: hidden;
+  }
+  .ep-card:hover { border-color: var(--line-strong); transform: translateY(-4px); }
+  .ep-thumb {
+    aspect-ratio: 16/9; overflow: hidden; position: relative;
+  }
+  .ep-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .ep-card:hover .ep-thumb img { transform: scale(1.06); }
+  .ep-thumb::after {
+    content: '▶'; position: absolute;
+    bottom: 12px; right: 12px;
+    width: 32px; height: 32px;
+    background: rgba(12, 14, 18, 0.85); color: var(--brass);
+    border: 1px solid var(--brass);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; padding-left: 2px;
+  }
+  .ep-body { padding: 18px 22px 22px; }
+  .ep-body h4 {
+    font-family: var(--display); font-size: 19px; font-weight: 500;
+    letter-spacing: -0.01em; margin: 0 0 6px; line-height: 1.25;
+  }
+  .ep-body .meta { font-size: 12px; color: var(--cream-dim); letter-spacing: 0.06em; }
+
+  /* IMPACT */
+  .impact {
+    background: var(--bg);
     position: relative; overflow: hidden;
   }
   .impact-grid {
@@ -551,7 +687,7 @@
     content: ''; position: absolute; inset: 0;
     background: linear-gradient(180deg, transparent 60%, rgba(12, 14, 18, 0.6) 100%);
   }
-  .impact-text h2 { font-family: var(--display); font-size: clamp(36px, 5vw, 56px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.05; margin: 14px 0 24px; }
+  .impact-text h2 { font-family: var(--display); font-size: clamp(34px, 5vw, 56px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.05; margin: 14px 0 24px; }
   .impact-text h2 em { font-style: italic; font-variation-settings: "SOFT" 80, "WONK" 1; color: var(--brass); }
   .impact-text p { color: var(--cream-dim); line-height: 1.75; margin: 0 0 28px; max-width: 560px; }
   .impact-stats {
@@ -567,44 +703,6 @@
     font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--cream-dim); margin-top: 8px;
   }
-
-  /* REVIEWS */
-  .reviews-stats {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border: 1px solid var(--line); margin-bottom: 56px;
-  }
-  @media (max-width: 720px) { .reviews-stats { grid-template-columns: 1fr; } }
-  .review-stat {
-    padding: 32px 24px; text-align: center;
-    border-right: 1px solid var(--line);
-  }
-  .review-stat:last-child { border-right: none; }
-  @media (max-width: 720px) {
-    .review-stat { border-right: none; border-bottom: 1px solid var(--line); }
-    .review-stat:last-child { border-bottom: none; }
-  }
-  .review-stat .num { font-family: var(--display); font-size: 38px; font-weight: 500; color: var(--brass); letter-spacing: -0.02em; }
-  .review-stat .label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-dim); margin-top: 6px; }
-
-  .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  @media (max-width: 1024px) { .testimonials { grid-template-columns: 1fr; } }
-  .testimonial {
-    padding: 36px 32px;
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    position: relative;
-  }
-  .testimonial-quote {
-    font-family: var(--display); font-size: 60px; line-height: 0; color: var(--brass);
-    margin-bottom: 12px; height: 28px; opacity: 0.5;
-  }
-  .testimonial p {
-    font-family: var(--display); font-size: 19px; line-height: 1.5;
-    color: var(--cream); font-weight: 400; margin: 0 0 28px;
-  }
-  .testimonial-author { display: flex; flex-direction: column; gap: 2px; }
-  .testimonial-name { font-size: 14px; font-weight: 600; color: var(--cream); }
-  .testimonial-role { font-size: 12px; color: var(--cream-dim); letter-spacing: 0.04em; }
 
   /* PRESS STRIP */
   .press {
@@ -627,6 +725,50 @@
     transition: color 0.2s ease;
   }
   .press-outlet:hover { color: var(--brass); }
+
+  /* PULL QUOTE TESTIMONIAL */
+  .pullquote {
+    padding: 140px 0;
+    background: var(--bg);
+    text-align: center;
+    position: relative;
+  }
+  @media (max-width: 720px) { .pullquote { padding: 88px 0; } }
+  .pullquote-mark {
+    font-family: var(--display); font-style: italic;
+    font-variation-settings: "SOFT" 80, "WONK" 1;
+    font-size: 200px; line-height: 0.6;
+    color: var(--brass); opacity: 0.35;
+    margin-bottom: 28px;
+    height: 100px;
+  }
+  .pullquote-text {
+    font-family: var(--display); font-style: italic;
+    font-variation-settings: "SOFT" 80, "WONK" 1;
+    font-size: clamp(28px, 4.4vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--cream);
+    max-width: 1000px;
+    margin: 0 auto 48px;
+    padding: 0 32px;
+  }
+  .pullquote-text em { color: var(--brass); }
+  .pullquote-author {
+    display: inline-flex; flex-direction: column; gap: 4px;
+    align-items: center;
+    border-top: 1px solid var(--line-strong);
+    padding-top: 20px;
+  }
+  .pullquote-name {
+    font-family: var(--sans); font-size: 14px; font-weight: 600;
+    letter-spacing: 0.04em; color: var(--cream);
+  }
+  .pullquote-role {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cream-dim);
+  }
 
   /* GALLERY */
   .gallery-grid {
@@ -724,7 +866,7 @@
     text-align: center;
   }
   .cta-block h2 {
-    font-family: var(--display); font-size: clamp(40px, 6vw, 80px); font-weight: 500;
+    font-family: var(--display); font-size: clamp(36px, 6vw, 80px); font-weight: 500;
     letter-spacing: -0.025em; line-height: 1.05; margin: 0 0 24px;
     max-width: 900px; margin-left: auto; margin-right: auto;
   }
@@ -787,8 +929,9 @@
     background: #4ade80;
     animation: pulseDot 2s ease-in-out infinite;
   }
-  .live-widget p { margin: 0 0 6px; font-size: 14px; color: var(--cream); line-height: 1.5; }
-  .live-widget .sub { font-size: 12px; color: var(--cream-dim); margin-bottom: 14px; }
+  .live-widget p { margin: 0 0 6px; font-size: 14px; color: var(--cream); line-height: 1.5; font-family: var(--display); }
+  .live-widget p em { font-style: italic; font-variation-settings: "SOFT" 80, "WONK" 1; color: var(--brass); }
+  .live-widget .sub { font-size: 12px; color: var(--cream-dim); margin-bottom: 14px; font-family: var(--sans); }
   .live-widget .live-link {
     font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--brass);
@@ -867,6 +1010,7 @@
     display: flex; align-items: center; justify-content: center;
     opacity: 0; pointer-events: none;
     transition: opacity 0.3s ease;
+    padding: 32px;
   }
   .lightbox.open { opacity: 1; pointer-events: auto; }
   .lightbox img {
@@ -875,6 +1019,13 @@
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
   }
   .lightbox.open img { transform: scale(1); }
+  .lightbox iframe {
+    width: min(92vw, 1280px); aspect-ratio: 16/9;
+    border: 0; transform: scale(0.92);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  }
+  .lightbox.open iframe { transform: scale(1); }
   .lightbox-close {
     position: absolute; top: 24px; right: 24px;
     width: 44px; height: 44px;
@@ -903,8 +1054,8 @@
     <nav class="main-nav">
       <a href="#about">About</a>
       <a href="#work">Work</a>
-      <a href="#impact">Steel City Impact</a>
-      <a href="#press">Press</a>
+      <a href="#grindcast">GRINDcast</a>
+      <a href="#impact">Impact</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-right">
@@ -943,7 +1094,10 @@
     </div>
     <div class="hero-cta">
       <button class="btn magnetic" data-trigger="modal">Speaking Inquiry</button>
-      <a href="#about" class="btn ghost magnetic">The Story</a>
+      <button class="play-btn magnetic" data-video="x3j8WueR-V4">
+        <span class="play-icon">▶</span>
+        Watch the latest GRINDcast
+      </button>
     </div>
   </div>
   <div class="hero-scroll-hint">
@@ -957,63 +1111,41 @@
     <span class="marquee-item">Grit. Growth. Giving.<span class="star">✦</span></span>
     <span class="marquee-item">Stay in the fight.<span class="star">✦</span></span>
     <span class="marquee-item">Built from nothing.<span class="star">✦</span></span>
-    <span class="marquee-item">From Youngstown to nationwide.<span class="star">✦</span></span>
     <span class="marquee-item">Purpose over position.<span class="star">✦</span></span>
     <span class="marquee-item">Grit. Growth. Giving.<span class="star">✦</span></span>
     <span class="marquee-item">Stay in the fight.<span class="star">✦</span></span>
     <span class="marquee-item">Built from nothing.<span class="star">✦</span></span>
-    <span class="marquee-item">From Youngstown to nationwide.<span class="star">✦</span></span>
     <span class="marquee-item">Purpose over position.<span class="star">✦</span></span>
   </div>
 </div>
 
-<section id="about">
+<section id="about" class="about-merged">
   <div class="container">
     <div class="section-head reveal">
-      <div><span class="num">01</span><span class="eyebrow">Why Simon</span></div>
-      <h2>Three things that <em>aren't</em> on the resume.</h2>
+      <div><span class="num">01</span><span class="eyebrow">The Operator</span></div>
+      <h2>Three words that <em>compound</em> over twenty years.</h2>
     </div>
-    <div class="diff-grid reveal">
-      <div class="diff-cell">
-        <div class="diff-num">i.</div>
-        <h3>Built from nothing.</h3>
-        <p>Grew up in a Youngstown, Ohio neighborhood with no playbook. Football team captain through high school and college. Earned six figures in his first year with American Income Life. Self-made millionaire by 26. Founded Arias Agencies at 24 — the youngest State General Agent in company history.</p>
-      </div>
-      <div class="diff-cell">
-        <div class="diff-num">ii.</div>
-        <h3>The largest distribution in AIL.</h3>
-        <p>Founded 2008 in Pittsburgh. Today the largest American Income Life distribution center in the U.S. Multiple offices, virtual agents nationwide. Two-time State General Agent of the Year. Member of AIL's Executive Council. Holds multiple company records, including fastest agency to weekly production milestones.</p>
-      </div>
-      <div class="diff-cell">
-        <div class="diff-num">iii.</div>
-        <h3>Mentorship is the second job.</h3>
-        <p>Steel City Impact (founded 2020). Inspiring Minds Youngstown chapter (Board Chair since 2015). The Red Zone, co-founded with former Ohio State and NFL athlete Maurice Clarett. The thing the resume doesn't tell you: the youth programs aren't a side project — they're a parallel career.</p>
-      </div>
+    <div class="about-intro reveal">
+      <p>Born in a Youngstown neighborhood with no playbook. Football team captain. Door-to-door sales at 21. Six figures in year one. Self-made millionaire by 26. Founded Arias Agencies at 24 — the youngest State General Agent in AIL history. Today the largest distribution center in the company. And the part the resume doesn't say: the youth programs aren't a side <em>project</em>.</p>
     </div>
-  </div>
-</section>
-
-<section class="signature">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><span class="num">02</span><span class="eyebrow">The Operating System</span></div>
-      <h2>Three words. Twenty years of <em>compounding</em>.</h2>
-    </div>
-    <div class="trinity">
-      <div class="trinity-cell reveal">
-        <div class="trinity-letter">G</div>
-        <h3><em>Grit.</em></h3>
-        <p>The willingness to do unsexy reps for years before anyone notices. Six figures in year one didn't come from a viral moment. It came from showing up, getting told no, and showing up again the next morning. Grit is the only durable advantage.</p>
+    <div class="triad">
+      <div class="triad-cell reveal">
+        <div class="triad-word">Grit.</div>
+        <div class="triad-stat">Built from nothing</div>
+        <h3>Six figures in year one. Two decades of unsexy reps.</h3>
+        <p>Door-to-door at 21. State General Agent at 24 — youngest in company history. Self-made millionaire by 26. Two-time SGA of the Year. AIL Executive Council. The receipts come from showing up before the alarm went off, every day, for twenty years.</p>
       </div>
-      <div class="trinity-cell reveal">
-        <div class="trinity-letter">G</div>
-        <h3><em>Growth.</em></h3>
-        <p>Awards are lagging indicators. The leading indicator is whether the people around you are getting better. State General Agent of the Year is fine. Watching agents who joined at 22 buy their parents a house — that's the receipt that matters.</p>
+      <div class="triad-cell reveal">
+        <div class="triad-word">Growth.</div>
+        <div class="triad-stat">The largest in AIL</div>
+        <h3>Founded 2008. The #1 distribution center in American Income Life.</h3>
+        <p>Multiple offices, virtual agents nationwide. Holds multiple company records — fastest agency to weekly production milestones. The lagging indicator is the awards. The leading indicator is watching agents who joined at 22 buy their parents a house.</p>
       </div>
-      <div class="trinity-cell reveal">
-        <div class="trinity-letter">G</div>
-        <h3><em>Giving.</em></h3>
-        <p>Steel City Impact, Inspiring Minds, The Red Zone. Programs Simon would have killed to have access to as a kid in Youngstown. The mentors he didn't have growing up are the mentors he's becoming on the other side of the table.</p>
+      <div class="triad-cell reveal">
+        <div class="triad-word">Giving.</div>
+        <div class="triad-stat">A parallel career</div>
+        <h3>Steel City Impact. Inspiring Minds. The Red Zone.</h3>
+        <p>Three programs Simon would have killed to have access to as a kid in Youngstown. Inspiring Minds Board Chair since 2015. Steel City Impact (Pittsburgh) since 2020. The Red Zone with former Ohio State and NFL athlete Maurice Clarett. Not philanthropy as PR — as obligation.</p>
       </div>
     </div>
   </div>
@@ -1022,14 +1154,14 @@
 <section id="work">
   <div class="container">
     <div class="section-head reveal">
-      <div><span class="num">03</span><span class="eyebrow">Where to Tap In</span></div>
+      <div><span class="num">02</span><span class="eyebrow">Where to Tap In</span></div>
       <h2>Four <em>doors</em>. One operator.</h2>
     </div>
     <div class="work-grid">
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Keynote</span>
-          <img src="photos/horz-1.jpg" alt="Simon Arias speaking at a leadership event">
+          <img src="photos/horz-2.jpg" alt="Simon Arias speaking at a leadership event">
         </div>
         <div class="work-body">
           <h3>Speaking</h3>
@@ -1041,13 +1173,13 @@
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Podcast</span>
-          <img src="photos/banner-music.png" alt="GRINDcast podcast cover">
+          <img src="photos/yt-supposed-hard.jpg" alt="GRINDcast podcast — It's Supposed To Be Hard">
         </div>
         <div class="work-body">
           <h3>GRINDcast</h3>
-          <div class="price">"Stay in the Fight" · Spotify · Apple · TuneIn</div>
+          <div class="price">"Stay in the Fight" · Apple · Spotify · YouTube</div>
           <p>Long-form conversations with operators, athletes, and recovering quitters. Recent guests include Marine and Purple Heart recipient Micah Herndon and rising agency leaders Angel Perez and Saleem Mustafa. New episodes weekly.</p>
-          <a href="https://simonarias.net/feed/podcast" class="work-link" target="_blank" rel="noopener">Listen now →</a>
+          <a href="#grindcast" class="work-link">Latest episode →</a>
         </div>
       </article>
       <article class="work-card reveal">
@@ -1078,11 +1210,53 @@
   </div>
 </section>
 
+<section id="grindcast" class="grindcast">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="num">03</span><span class="eyebrow">GRINDcast — Stay in the Fight</span></div>
+      <h2>Long-form, on-the-record, <em>no</em> shortcuts.</h2>
+    </div>
+    <div class="video-wrap reveal" data-video="x3j8WueR-V4">
+      <img src="photos/yt-supposed-hard.jpg" alt="GRINDcast — It's Supposed To Be Hard">
+      <div class="video-overlay">
+        <button class="video-play" aria-label="Play video">▶</button>
+      </div>
+      <div class="video-meta">
+        <div class="video-meta-title">It's Supposed To Be Hard.</div>
+        <div class="video-meta-side">Featured · Watch now</div>
+      </div>
+    </div>
+    <div class="episode-grid">
+      <div class="ep-card reveal" data-video="V-8k8qCLjBQ">
+        <div class="ep-thumb"><img src="photos/yt-decide-commit.jpg" alt="Decide & Commit"></div>
+        <div class="ep-body">
+          <h4>Decide &amp; Commit</h4>
+          <div class="meta">GRINDcast · Watch on YouTube</div>
+        </div>
+      </div>
+      <div class="ep-card reveal" data-video="9N9vVs7egNI">
+        <div class="ep-thumb"><img src="photos/yt-unbreakable.jpg" alt="Unbreakable"></div>
+        <div class="ep-body">
+          <h4>Unbreakable</h4>
+          <div class="meta">On struggle &amp; the long game</div>
+        </div>
+      </div>
+      <div class="ep-card reveal" data-video="GhsMAyc8da0">
+        <div class="ep-thumb"><img src="photos/yt-success-failure.jpg" alt="Success Requires Failure"></div>
+        <div class="ep-body">
+          <h4>Success Requires Failure</h4>
+          <div class="meta">Why the L's are the curriculum</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="impact" class="impact">
   <div class="container">
     <div class="impact-grid">
       <div class="impact-img reveal">
-        <img src="photos/event-7.png" alt="Steel City Impact event in Pittsburgh">
+        <img src="photos/horz-5.jpg" alt="Steel City Impact event in Pittsburgh">
       </div>
       <div class="impact-text reveal">
         <span class="eyebrow">04 — Steel City Impact</span>
@@ -1109,65 +1283,26 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-head reveal">
-      <div><span class="num">05</span><span class="eyebrow">What People Say</span></div>
-      <h2>Twenty years of <em>receipts</em>.</h2>
-    </div>
-    <div class="reviews-stats reveal">
-      <div class="review-stat">
-        <div class="num">100+</div>
-        <div class="label">Keynotes Delivered</div>
-      </div>
-      <div class="review-stat">
-        <div class="num">6 yrs</div>
-        <div class="label">GRINDcast On Air</div>
-      </div>
-      <div class="review-stat">
-        <div class="num">2×</div>
-        <div class="label">SGA of the Year (AIL)</div>
-      </div>
-    </div>
-    <div class="testimonials">
-      <div class="testimonial reveal">
-        <div class="testimonial-quote">"</div>
-        <p>He speaks from the heart and makes you believe you can do more, because you can.</p>
-        <div class="testimonial-author">
-          <span class="testimonial-name">Danielle S.</span>
-          <span class="testimonial-role">Small Business Owner</span>
-        </div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="testimonial-quote">"</div>
-        <p>Booked Simon for our regional sales kickoff. He didn't pull the standard motivational speaker move. Told the team things they actually needed to hear and then stayed the whole day.</p>
-        <div class="testimonial-author">
-          <span class="testimonial-name">Marc T.</span>
-          <span class="testimonial-role">VP Sales, Financial Services</span>
-        </div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="testimonial-quote">"</div>
-        <p>Steel City Impact connected my son with mentors who actually run businesses. He went from skipping class to running a lawn-cutting service in two semesters.</p>
-        <div class="testimonial-author">
-          <span class="testimonial-name">Lisa W.</span>
-          <span class="testimonial-role">Parent · Greater Pittsburgh</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="press" class="press">
+<section class="press">
   <div class="container">
     <div class="press-row">
       <span class="press-label">As featured in</span>
-      <a href="#" class="press-outlet">Yahoo Finance</a>
-      <a href="#" class="press-outlet">AccessWire</a>
-      <a href="#" class="press-outlet">AP News</a>
-      <a href="#" class="press-outlet">Influential People</a>
-      <a href="#" class="press-outlet">Cloutrep</a>
-      <a href="#" class="press-outlet">GRINDcast</a>
+      <a href="https://www.accesswire.com/873268/steel-city-impact-founded-by-simon-arias-celebrates-success-at-annual-celebrity-athlete-cigar-bar-event" target="_blank" rel="noopener" class="press-outlet">AccessWire</a>
+      <a href="https://influentialpeoplemagazine.com/meet-simon-arias-state-director-of-arias-organization/" target="_blank" rel="noopener" class="press-outlet">Influential People</a>
+      <a href="https://cloutrep.com/profile/simon-arias/" target="_blank" rel="noopener" class="press-outlet">Cloutrep</a>
+      <a href="https://www.linkedin.com/in/simonarias" target="_blank" rel="noopener" class="press-outlet">LinkedIn</a>
+      <a href="https://www.youtube.com/c/SimonArias" target="_blank" rel="noopener" class="press-outlet">GRINDcast</a>
+    </div>
+  </div>
+</section>
+
+<section class="pullquote">
+  <div class="reveal">
+    <div class="pullquote-mark">"</div>
+    <p class="pullquote-text">He speaks from the heart and makes you believe you can do <em>more</em>, because you can.</p>
+    <div class="pullquote-author">
+      <span class="pullquote-name">Danielle S.</span>
+      <span class="pullquote-role">Small Business Owner</span>
     </div>
   </div>
 </section>
@@ -1175,18 +1310,18 @@
 <section>
   <div class="container">
     <div class="section-head reveal">
-      <div><span class="num">06</span><span class="eyebrow">In the Field</span></div>
+      <div><span class="num">05</span><span class="eyebrow">In the Field</span></div>
       <h2>Twenty years, <em>compressed</em>.</h2>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item tall" data-img="photos/about-1.jpg"><img src="photos/about-1.jpg" alt="Simon Arias portrait"></div>
-      <div class="gallery-item wide" data-img="photos/horz-1.jpg"><img src="photos/horz-1.jpg" alt="Simon at a corporate event"></div>
-      <div class="gallery-item" data-img="photos/horz-2.jpg"><img src="photos/horz-2.jpg" alt="Simon speaking"></div>
-      <div class="gallery-item tall" data-img="photos/event-7.png"><img src="photos/event-7.png" alt="Steel City Impact event"></div>
-      <div class="gallery-item" data-img="photos/about-2.jpg"><img src="photos/about-2.jpg" alt="Simon Arias business portrait"></div>
-      <div class="gallery-item wide" data-img="photos/horz-3.jpg"><img src="photos/horz-3.jpg" alt="GRINDcast recording"></div>
-      <div class="gallery-item" data-img="photos/horz-4.jpg"><img src="photos/horz-4.jpg" alt="Mentorship session"></div>
-      <div class="gallery-item" data-img="photos/horz-5.jpg"><img src="photos/horz-5.jpg" alt="Leadership offsite"></div>
+      <div class="gallery-item tall" data-img="photos/horz-1.jpg"><img src="photos/horz-1.jpg" alt="Simon Arias at a leadership event"></div>
+      <div class="gallery-item wide" data-img="photos/horz-2.jpg"><img src="photos/horz-2.jpg" alt="Simon speaking on stage"></div>
+      <div class="gallery-item" data-img="photos/yt-supposed-hard.jpg"><img src="photos/yt-supposed-hard.jpg" alt="GRINDcast set"></div>
+      <div class="gallery-item tall" data-img="photos/horz-5.jpg"><img src="photos/horz-5.jpg" alt="Steel City Impact event"></div>
+      <div class="gallery-item" data-img="photos/horz-3.jpg"><img src="photos/horz-3.jpg" alt="Mentorship session"></div>
+      <div class="gallery-item wide" data-img="photos/horz-4.jpg"><img src="photos/horz-4.jpg" alt="Press appearance"></div>
+      <div class="gallery-item" data-img="photos/yt-decide-commit.jpg"><img src="photos/yt-decide-commit.jpg" alt="Decide and Commit episode"></div>
+      <div class="gallery-item" data-img="photos/yt-loyal.jpg"><img src="photos/yt-loyal.jpg" alt="GRINDcast episode"></div>
     </div>
   </div>
 </section>
@@ -1194,13 +1329,13 @@
 <section id="contact">
   <div class="container">
     <div class="section-head reveal">
-      <div><span class="num">07</span><span class="eyebrow">Direct Line</span></div>
+      <div><span class="num">06</span><span class="eyebrow">Direct Line</span></div>
       <h2>Pittsburgh. Miami. <em>Virtual nationwide.</em></h2>
     </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
         <h3>Where</h3>
-        <p>Pittsburgh, PA · Miami, FL · Virtual nationwide<br>The physical office is transitioning — the work isn't.</p>
+        <p>Pittsburgh, PA · Miami, FL · Virtual nationwide<br>The physical office is transitioning. The work isn't.</p>
         <h3>Direct</h3>
         <p>
           <a href="tel:14122352385">(412) 235-2385</a><br>
@@ -1215,6 +1350,7 @@
         <p>
           <a href="https://www.linkedin.com/in/simonarias" target="_blank" rel="noopener">LinkedIn</a> ·
           <a href="https://www.youtube.com/c/SimonArias" target="_blank" rel="noopener">YouTube</a> ·
+          <a href="https://www.instagram.com/simonarias/" target="_blank" rel="noopener">Instagram</a> ·
           <a href="https://simonarias.net/feed/podcast" target="_blank" rel="noopener">GRINDcast</a>
         </p>
       </div>
@@ -1228,7 +1364,7 @@
 <section>
   <div class="container">
     <div class="section-head reveal">
-      <div><span class="num">08</span><span class="eyebrow">Common Questions</span></div>
+      <div><span class="num">07</span><span class="eyebrow">Common Questions</span></div>
       <h2>What people <em>actually</em> ask.</h2>
     </div>
     <div class="faq-list">
@@ -1300,7 +1436,7 @@
         <h4>The Work</h4>
         <ul>
           <li><a href="#work">Speaking</a></li>
-          <li><a href="#work">GRINDcast Podcast</a></li>
+          <li><a href="#grindcast">GRINDcast Podcast</a></li>
           <li><a href="#work">Mentorship</a></li>
           <li><a href="#work">Press &amp; Media</a></li>
         </ul>
@@ -1318,7 +1454,7 @@
         <ul>
           <li><a href="https://www.linkedin.com/in/simonarias" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://www.youtube.com/c/SimonArias" target="_blank" rel="noopener">YouTube</a></li>
-          <li><a href="https://simonarias.net/feed/podcast" target="_blank" rel="noopener">Podcast RSS</a></li>
+          <li><a href="https://www.instagram.com/simonarias/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="mailto:simonarias@ariasagencies.com">Email</a></li>
         </ul>
       </div>
@@ -1331,10 +1467,10 @@
 </footer>
 
 <div class="live-widget" id="liveWidget">
-  <div class="live-head"><span class="pulse"></span> Live now</div>
-  <p>2026 speaking calendar — open dates this fall.</p>
-  <div class="sub">Pittsburgh ↦ Miami transition · Virtual keynotes available</div>
-  <button class="live-link" data-trigger="modal">Tap in →</button>
+  <div class="live-head"><span class="pulse"></span> Latest GRINDcast</div>
+  <p><em>It's Supposed To Be Hard.</em></p>
+  <div class="sub">New episode · Watch in 1 click</div>
+  <button class="live-link" data-video="x3j8WueR-V4">Tap in →</button>
 </div>
 
 <div class="modal-backdrop" id="modal">
@@ -1385,7 +1521,8 @@
 
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
-  <img id="lightboxImg" src="" alt="">
+  <img id="lightboxImg" src="" alt="" style="display:none;">
+  <iframe id="lightboxIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1408,7 +1545,7 @@
   updateLiveStatus();
   setInterval(updateLiveStatus, 60000);
 
-  // GSAP REVEAL ANIMATIONS — `from` pattern so page works even if JS fails
+  // GSAP REVEAL ANIMATIONS — `.from()` pattern so page works even if JS fails
   if (window.gsap) {
     gsap.registerPlugin(ScrollTrigger);
     gsap.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 1.1, delay: 0.2, ease: 'power2.out' });
@@ -1427,17 +1564,10 @@
       });
     });
 
-    document.querySelectorAll('.diff-cell').forEach(function(el, i){
-      gsap.from(el, {
-        opacity: 0, y: 40, duration: 0.9, delay: i * 0.12, ease: 'power2.out',
-        scrollTrigger: { trigger: '.diff-grid', start: 'top 80%', toggleActions: 'play none none none' }
-      });
-    });
-
-    document.querySelectorAll('.trinity-cell').forEach(function(el, i){
+    document.querySelectorAll('.triad-cell').forEach(function(el, i){
       gsap.from(el, {
         opacity: 0, y: 50, duration: 1, delay: i * 0.18, ease: 'power3.out',
-        scrollTrigger: { trigger: '.trinity', start: 'top 78%', toggleActions: 'play none none none' }
+        scrollTrigger: { trigger: '.triad', start: 'top 80%', toggleActions: 'play none none none' }
       });
     });
 
@@ -1448,10 +1578,10 @@
       });
     });
 
-    document.querySelectorAll('.testimonial').forEach(function(el, i){
+    document.querySelectorAll('.ep-card').forEach(function(el, i){
       gsap.from(el, {
-        opacity: 0, y: 30, duration: 0.9, delay: i * 0.12, ease: 'power2.out',
-        scrollTrigger: { trigger: '.testimonials', start: 'top 85%', toggleActions: 'play none none none' }
+        opacity: 0, y: 30, duration: 0.8, delay: i * 0.12, ease: 'power2.out',
+        scrollTrigger: { trigger: '.episode-grid', start: 'top 85%', toggleActions: 'play none none none' }
       });
     });
 
@@ -1500,13 +1630,6 @@
   document.querySelectorAll('[data-trigger="modal"]').forEach(function(btn){
     btn.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
   });
-  // Also wire any button whose text contains "reserve", "apply", "book"
-  document.querySelectorAll('button, a').forEach(function(el){
-    var t = (el.textContent || '').toLowerCase();
-    if (/(reserve|apply|book a date|send a note|send the note|tap in|get in touch|speaking inquiry|request a kit|get involved)/.test(t) && !el.hasAttribute('data-trigger') && el.tagName !== 'A') {
-      el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
-    }
-  });
 
   modalClose.addEventListener('click', closeModal);
   modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
@@ -1518,14 +1641,44 @@
     setTimeout(function(){ alert("Thanks. Simon's team will be in touch within 24 hours."); }, 300);
   });
 
-  // LIGHTBOX
+  // LIGHTBOX (image OR YouTube video)
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxIframe = document.getElementById('lightboxIframe');
   var lightboxClose = document.getElementById('lightboxClose');
-  function openLightbox(src) { lightboxImg.src = src; lightbox.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+
+  function openLightboxImage(src) {
+    lightboxImg.src = src;
+    lightboxImg.style.display = 'block';
+    lightboxIframe.style.display = 'none';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function openLightboxVideo(videoId) {
+    lightboxIframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+    lightboxIframe.style.display = 'block';
+    lightboxImg.style.display = 'none';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function(){
+      lightboxImg.src = '';
+      lightboxIframe.src = '';
+    }, 300);
+  }
+
   document.querySelectorAll('.gallery-item').forEach(function(item){
-    item.addEventListener('click', function(){ openLightbox(item.dataset.img); });
+    item.addEventListener('click', function(){ openLightboxImage(item.dataset.img); });
+  });
+  document.querySelectorAll('[data-video]').forEach(function(item){
+    item.addEventListener('click', function(e){
+      e.preventDefault();
+      var vid = item.dataset.video;
+      if (vid) openLightboxVideo(vid);
+    });
   });
   lightboxClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', function(e){ if (e.target === lightbox) closeLightbox(); });
