@@ -1636,64 +1636,45 @@
   updateLiveStatus();
   setInterval(updateLiveStatus, 60000);
 
-  // GSAP REVEAL ANIMATIONS — `.from()` pattern so page works even if JS fails
-  if (window.gsap) {
+  // GSAP REVEAL ANIMATIONS
+  // Critical rule: only `.from()` an element if it's NOT already in viewport at page load.
+  // Otherwise GSAP sets opacity:0 instantly but the scroll trigger never fires, leaving it stuck invisible.
+  if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
+
+    // HERO — page-load animations (always run, no scroll trigger)
     gsap.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 1.1, delay: 0.2, ease: 'power2.out' });
     gsap.from('.hero h1 .line', { opacity: 0, y: 60, duration: 1.2, stagger: 0.12, delay: 0.4, ease: 'power3.out' });
     gsap.from('.hero-meta', { opacity: 0, y: 30, duration: 1, delay: 1.2, ease: 'power2.out' });
     gsap.from('.hero-cta', { opacity: 0, y: 20, duration: 1, delay: 1.5, ease: 'power2.out' });
     gsap.from('.hero-scroll-hint', { opacity: 0, duration: 1, delay: 2 });
 
-    document.querySelectorAll('.reveal').forEach(function(el){
+    // SCROLL REVEALS — skip elements already in viewport at init time
+    var allRevealSelectors = '.reveal, .triad-cell, .work-card, .ep-card, .testimonial, .faq-item, .press-outlet';
+    var vh = window.innerHeight;
+    document.querySelectorAll(allRevealSelectors).forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      // Already visible at page load — leave as-is, never animate
+      if (rect.top < vh * 0.95) return;
+      // Below viewport — animate from invisible when scrolled to
       gsap.from(el, {
-        opacity: 0,
-        y: 30,
-        duration: 0.7,
-        ease: 'power2.out',
+        opacity: 0, y: 30, duration: 0.7, ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' }
       });
     });
 
-    gsap.from('.triad-cell', {
-      opacity: 0, y: 30, duration: 0.7, stagger: 0.08, ease: 'power2.out',
-      scrollTrigger: { trigger: '.triad', start: 'top 95%', toggleActions: 'play none none none' }
-    });
+    // Refresh ScrollTrigger after layout settles (catches font-load reflows)
+    setTimeout(function(){ ScrollTrigger.refresh(); }, 250);
 
-    document.querySelectorAll('.work-card').forEach(function(el, i){
-      gsap.from(el, {
-        opacity: 0, y: 40, duration: 0.9, delay: i * 0.1, ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+    // FAILSAFE — force visibility for anything still stuck invisible after 2.5s.
+    // Belt-and-braces against edge cases where ScrollTrigger fails to fire.
+    setTimeout(function(){
+      document.querySelectorAll(allRevealSelectors).forEach(function(el){
+        if (parseFloat(getComputedStyle(el).opacity) < 0.5) {
+          gsap.set(el, { opacity: 1, y: 0, clearProps: 'transform' });
+        }
       });
-    });
-
-    document.querySelectorAll('.ep-card').forEach(function(el, i){
-      gsap.from(el, {
-        opacity: 0, y: 30, duration: 0.8, delay: i * 0.12, ease: 'power2.out',
-        scrollTrigger: { trigger: '.episode-grid', start: 'top 85%', toggleActions: 'play none none none' }
-      });
-    });
-
-    document.querySelectorAll('.gallery-item').forEach(function(el, i){
-      gsap.from(el, {
-        opacity: 0, scale: 0.94, duration: 0.7, delay: i * 0.06, ease: 'power2.out',
-        scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%', toggleActions: 'play none none none' }
-      });
-    });
-
-    document.querySelectorAll('.faq-item').forEach(function(el, i){
-      gsap.from(el, {
-        opacity: 0, y: 20, duration: 0.7, delay: i * 0.08, ease: 'power2.out',
-        scrollTrigger: { trigger: '.faq-list', start: 'top 85%', toggleActions: 'play none none none' }
-      });
-    });
-
-    document.querySelectorAll('.press-outlet').forEach(function(el, i){
-      gsap.from(el, {
-        opacity: 0, y: 12, duration: 0.6, delay: i * 0.08, ease: 'power2.out',
-        scrollTrigger: { trigger: '.press-row', start: 'top 90%', toggleActions: 'play none none none' }
-      });
-    });
+    }, 2500);
   }
 
   // LIVE WIDGET — reveal on scroll past 600px + periodic ping
