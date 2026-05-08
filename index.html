@@ -522,6 +522,74 @@
   }
   .triad-cell p { color: var(--cream-dim); line-height: 1.7; margin: 0; font-size: 15.5px; }
 
+  /* STORY — replaced the triad with a 2-column milestone + portrait layout */
+  .story-grid {
+    display: grid; grid-template-columns: 1.35fr 0.85fr;
+    gap: 72px; align-items: start;
+    margin-top: 64px;
+  }
+  @media (max-width: 1024px) {
+    .story-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .story-pillars { display: flex; flex-direction: column; }
+  .story-pillar {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .story-pillar:first-child { padding-top: 0; }
+  .story-pillar:last-child { border-bottom: none; padding-bottom: 0; }
+  .story-num {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "SOFT" 80, "WONK" 1;
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 500;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--brass);
+    margin-bottom: 6px;
+  }
+  .story-meta {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cream-dim); margin-bottom: 16px;
+  }
+  .story-pillar h3 {
+    font-family: var(--display); font-size: 22px; font-weight: 500;
+    letter-spacing: -0.01em; line-height: 1.3;
+    margin: 0 0 12px; color: var(--cream);
+  }
+  .story-pillar p {
+    color: var(--cream-dim); line-height: 1.7; margin: 0; font-size: 15.5px;
+  }
+  .story-portrait { position: sticky; top: 110px; }
+  @media (max-width: 1024px) {
+    .story-portrait { position: static; max-width: 420px; margin-left: auto; margin-right: auto; }
+  }
+  .story-img {
+    aspect-ratio: 4/5; overflow: hidden;
+    border: 1px solid var(--line);
+    position: relative;
+    background: var(--bg-elevated);
+  }
+  .story-img img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;
+  }
+  .story-img::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15,15,15,0) 55%, rgba(15,15,15,0.55) 100%),
+      linear-gradient(90deg, rgba(15,15,15,0.18) 0%, rgba(15,15,15,0) 50%);
+    pointer-events: none;
+  }
+  .story-caption {
+    font-family: var(--display); font-style: italic;
+    font-variation-settings: "SOFT" 80, "WONK" 1;
+    font-size: 13px; color: var(--cream-dim);
+    margin-top: 14px; line-height: 1.5;
+    padding-left: 12px;
+    border-left: 1px solid var(--line-strong);
+  }
+
   /* WORK */
   .work-grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
@@ -1137,6 +1205,15 @@
     /* Footer — pull-quote-like brand block */
     .footer-brand h3 { font-size: 24px; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+    /* Story section — tighten on small phones */
+    .story-grid { gap: 36px; margin-top: 40px; }
+    .story-pillar { padding: 28px 0; }
+    .story-num { font-size: clamp(44px, 13vw, 64px); }
+    .story-pillar h3 { font-size: 19px; }
+    .story-pillar p { font-size: 14.5px; }
+    .story-portrait { max-width: 320px; }
+    .story-caption { font-size: 12px; }
   }
 
   /* Reduce-motion accessibility — kill the auto-playing animations */
@@ -1233,30 +1310,38 @@
   <div class="container">
     <div class="section-head reveal">
       <div><span class="num">01</span><span class="eyebrow">The Operator</span></div>
-      <h2>Three words that <em>compound</em> over twenty years.</h2>
+      <h2>Twenty years. <em>Three</em> numbers.</h2>
     </div>
     <div class="about-intro reveal">
       <p>Born in a Youngstown neighborhood with no playbook. Football team captain. Door-to-door sales at 21. Six figures in year one. Self-made millionaire by 26. Founded Arias Agencies at 24 — the youngest State General Agent in AIL history. Today the largest distribution center in the company. And the part the resume doesn't say: the youth programs aren't a side <em>project</em>.</p>
     </div>
-    <div class="triad">
-      <div class="triad-cell reveal">
-        <div class="triad-word">Grit.</div>
-        <div class="triad-stat">Built from nothing</div>
-        <h3>Six figures in year one. Two decades of unsexy reps.</h3>
-        <p>Door-to-door at 21. State General Agent at 24 — youngest in company history. Self-made millionaire by 26. Two-time SGA of the Year. AIL Executive Council. The receipts come from showing up before the alarm went off, every day, for twenty years.</p>
+    <div class="story-grid">
+      <div class="story-pillars">
+        <div class="story-pillar">
+          <div class="story-num">26</div>
+          <div class="story-meta">Self-made millionaire</div>
+          <h3>Six figures in year one. Two decades of unsexy reps.</h3>
+          <p>Door-to-door at 21. State General Agent at 24 — youngest in company history. Two-time SGA of the Year. AIL Executive Council. The receipts come from showing up before the alarm went off, every day, for twenty years.</p>
+        </div>
+        <div class="story-pillar">
+          <div class="story-num">#1</div>
+          <div class="story-meta">Largest distribution in AIL</div>
+          <h3>Founded 2008. Today the largest in the company.</h3>
+          <p>Multiple offices, virtual agents nationwide. Holds multiple records — fastest agency to weekly production milestones. The lagging indicator is the awards. The leading indicator is watching agents who joined at 22 buy their parents a house.</p>
+        </div>
+        <div class="story-pillar">
+          <div class="story-num">3</div>
+          <div class="story-meta">Youth programs (and counting)</div>
+          <h3>Steel City Impact. Inspiring Minds. The Red Zone.</h3>
+          <p>Pittsburgh and Youngstown nonprofits. Inspiring Minds Board Chair since 2015. Steel City Impact since 2020. The Red Zone with former Ohio State and NFL athlete Maurice Clarett. Three programs Simon would have killed to access as a kid.</p>
+        </div>
       </div>
-      <div class="triad-cell reveal">
-        <div class="triad-word">Growth.</div>
-        <div class="triad-stat">The largest in AIL</div>
-        <h3>Founded 2008. The #1 distribution center in American Income Life.</h3>
-        <p>Multiple offices, virtual agents nationwide. Holds multiple company records — fastest agency to weekly production milestones. The lagging indicator is the awards. The leading indicator is watching agents who joined at 22 buy their parents a house.</p>
-      </div>
-      <div class="triad-cell reveal">
-        <div class="triad-word">Giving.</div>
-        <div class="triad-stat">A parallel career</div>
-        <h3>Steel City Impact. Inspiring Minds. The Red Zone.</h3>
-        <p>Three programs Simon would have killed to have access to as a kid in Youngstown. Inspiring Minds Board Chair since 2015. Steel City Impact (Pittsburgh) since 2020. The Red Zone with former Ohio State and NFL athlete Maurice Clarett. Not philanthropy as PR — as obligation.</p>
-      </div>
+      <aside class="story-portrait">
+        <div class="story-img">
+          <img src="photos/horz-1.jpg" alt="Simon Arias at the GRINDcast studio" loading="lazy">
+        </div>
+        <div class="story-caption">"Stay in the fight." Photographed at the GRINDcast studio, Pittsburgh.</div>
+      </aside>
     </div>
   </div>
 </section>
