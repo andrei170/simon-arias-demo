@@ -312,7 +312,82 @@
   }
   .dot.closed { background: #6b6657; box-shadow: none; }
   @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-  @media (max-width: 720px) { .live-dot { display: none; } }
+  @media (max-width: 1024px) { .live-dot { display: none; } .header-cta { display: none; } }
+
+  /* MOBILE NAV — hamburger + full-screen overlay (visible <= 1024px) */
+  .mobile-nav-toggle {
+    display: none;
+    width: 40px; height: 40px;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    border-radius: 2px;
+    cursor: pointer; padding: 0;
+    align-items: center; justify-content: center;
+    flex-direction: column; gap: 5px;
+    transition: border-color 0.2s ease;
+  }
+  @media (max-width: 1024px) { .mobile-nav-toggle { display: flex; } }
+  .mobile-nav-toggle:hover { border-color: var(--brass); }
+  .mobile-nav-toggle span {
+    display: block; width: 18px; height: 1.5px;
+    background: var(--cream); border-radius: 1px;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease;
+  }
+  body.nav-open .mobile-nav-toggle { border-color: var(--brass); }
+  body.nav-open .mobile-nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--brass); }
+  body.nav-open .mobile-nav-toggle span:nth-child(2) { opacity: 0; }
+  body.nav-open .mobile-nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--brass); }
+
+  .mobile-nav {
+    position: fixed; inset: 0; z-index: 150;
+    background: rgba(15, 15, 15, 0.97);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  body.nav-open .mobile-nav { opacity: 1; pointer-events: auto; }
+  .mobile-nav-inner {
+    display: flex; flex-direction: column; gap: 22px;
+    text-align: center;
+    padding: 32px;
+  }
+  .mobile-nav-inner a:not(.btn) {
+    font-family: var(--display);
+    font-size: clamp(30px, 8vw, 48px);
+    font-weight: 500; letter-spacing: -0.02em;
+    color: var(--cream); line-height: 1.05;
+    transform: translateY(20px); opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, color 0.2s ease;
+  }
+  .mobile-nav-inner a:not(.btn):hover { color: var(--brass); }
+  .mobile-nav-inner .btn {
+    margin-top: 12px;
+    transform: translateY(20px); opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s, opacity 0.5s ease 0.35s;
+  }
+  body.nav-open .mobile-nav-inner a:not(.btn),
+  body.nav-open .mobile-nav-inner .btn { transform: translateY(0); opacity: 1; }
+  body.nav-open .mobile-nav-inner > *:nth-child(1) { transition-delay: 0.1s; }
+  body.nav-open .mobile-nav-inner > *:nth-child(2) { transition-delay: 0.16s; }
+  body.nav-open .mobile-nav-inner > *:nth-child(3) { transition-delay: 0.22s; }
+  body.nav-open .mobile-nav-inner > *:nth-child(4) { transition-delay: 0.28s; }
+  body.nav-open .mobile-nav-inner > *:nth-child(5) { transition-delay: 0.34s; }
+  body.nav-open .mobile-nav-inner > *:nth-child(6) { transition-delay: 0.4s; }
+
+  .mobile-nav-meta {
+    display: flex; gap: 14px; align-items: center; justify-content: center;
+    margin-top: 28px;
+    transform: translateY(20px); opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.46s, opacity 0.5s ease 0.46s;
+  }
+  body.nav-open .mobile-nav-meta { transform: translateY(0); opacity: 1; }
+  .mobile-nav-meta a {
+    font-size: 13px; color: var(--cream-dim);
+    letter-spacing: 0.04em;
+  }
+  .mobile-nav-meta a:hover { color: var(--brass); }
+  .mobile-nav-meta span { color: var(--muted); font-size: 12px; }
 
   .btn {
     font-family: var(--sans);
@@ -340,6 +415,8 @@
   .hero-bg {
     position: absolute; inset: 0;
     background-image: url('photos/horz-1.jpg');
+    background-image: -webkit-image-set(url('photos/horz-1.webp') type('image/webp') 1x, url('photos/horz-1.jpg') type('image/jpeg') 1x);
+    background-image: image-set(url('photos/horz-1.webp') type('image/webp') 1x, url('photos/horz-1.jpg') type('image/jpeg') 1x);
     background-size: cover; background-position: center;
     animation: kenBurns 30s ease-in-out infinite alternate;
     will-change: transform;
@@ -1080,6 +1157,30 @@
   }
   .form-field textarea { min-height: 90px; resize: vertical; }
 
+  /* Modal success state */
+  .modal-success { display: none; text-align: center; padding: 8px 0; }
+  .modal-success .success-mark {
+    width: 64px; height: 64px; margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--brass) 0%, var(--brass-deep) 100%);
+    color: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 700;
+  }
+  .modal-success h3 { margin-top: 14px; }
+  .modal-success .modal-sub { max-width: 380px; margin-left: auto; margin-right: auto; }
+  .modal-success .success-direct {
+    display: flex; gap: 12px; align-items: center; justify-content: center;
+    flex-wrap: wrap;
+    padding: 16px 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    margin-top: 8px;
+  }
+  .modal-success .success-direct a {
+    font-size: 14px; color: var(--brass); font-weight: 500;
+  }
+  .modal-success .success-direct span { color: var(--muted); }
+
   /* LIGHTBOX */
   .lightbox {
     position: fixed; inset: 0; z-index: 250;
@@ -1250,10 +1351,29 @@
         <span class="dot"></span>
         <span id="liveStatusText">Open Now</span>
       </div>
-      <button class="btn small magnetic" data-trigger="modal">Get in Touch</button>
+      <button class="btn small magnetic header-cta" data-trigger="modal">Get in Touch</button>
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
+
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-inner">
+    <a href="#about" data-mobile-link>About</a>
+    <a href="#work" data-mobile-link>Work</a>
+    <a href="#grindcast" data-mobile-link>GRINDcast</a>
+    <a href="#impact" data-mobile-link>Impact</a>
+    <a href="#contact" data-mobile-link>Contact</a>
+    <button class="btn magnetic" data-trigger="modal" data-mobile-link>Get in Touch</button>
+    <div class="mobile-nav-meta">
+      <a href="tel:14122352385">(412) 235-2385</a>
+      <span>·</span>
+      <a href="mailto:simonarias@ariasagencies.com">Email</a>
+    </div>
+  </div>
+</nav>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -1338,7 +1458,10 @@
       </div>
       <aside class="story-portrait">
         <div class="story-img">
-          <img src="photos/horz-1.jpg" alt="Simon Arias at the GRINDcast studio" loading="lazy">
+          <picture>
+            <source srcset="photos/horz-1.webp" type="image/webp">
+            <img src="photos/horz-1.jpg" alt="Simon Arias at the GRINDcast studio" loading="lazy">
+          </picture>
         </div>
         <div class="story-caption">"Stay in the fight." Photographed at the GRINDcast studio, Pittsburgh.</div>
       </aside>
@@ -1356,7 +1479,7 @@
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Keynote</span>
-          <img src="photos/about-2.jpg" alt="Simon Arias speaking portrait">
+          <img src="photos/about-2.jpg" alt="Simon Arias speaking portrait" loading="lazy">
         </div>
         <div class="work-body">
           <h3>Speaking</h3>
@@ -1368,7 +1491,7 @@
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Podcast</span>
-          <img src="photos/yt-supposed-hard.jpg" alt="GRINDcast podcast — It's Supposed To Be Hard">
+          <img src="photos/yt-supposed-hard.jpg" alt="GRINDcast podcast — It's Supposed To Be Hard" loading="lazy">
         </div>
         <div class="work-body">
           <h3>GRINDcast</h3>
@@ -1380,7 +1503,7 @@
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Mentorship</span>
-          <img src="photos/about-1.jpg" alt="Simon Arias mentorship portrait">
+          <img src="photos/about-1.jpg" alt="Simon Arias mentorship portrait" loading="lazy">
         </div>
         <div class="work-body">
           <h3>Mentorship</h3>
@@ -1392,7 +1515,7 @@
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Press</span>
-          <img src="photos/godaddy-portrait.jpg" alt="Simon Arias press headshot">
+          <img src="photos/godaddy-portrait.jpg" alt="Simon Arias press headshot" loading="lazy">
         </div>
         <div class="work-body">
           <h3>Press &amp; Media</h3>
@@ -1412,7 +1535,7 @@
       <h2>Long-form, on-the-record, <em>no</em> shortcuts.</h2>
     </div>
     <div class="video-wrap reveal" data-video="x3j8WueR-V4">
-      <img src="photos/yt-supposed-hard.jpg" alt="GRINDcast — It's Supposed To Be Hard">
+      <img src="photos/yt-supposed-hard.jpg" alt="GRINDcast — It's Supposed To Be Hard" loading="lazy">
       <div class="video-overlay">
         <button class="video-play" aria-label="Play video">▶</button>
       </div>
@@ -1423,21 +1546,21 @@
     </div>
     <div class="episode-grid">
       <div class="ep-card reveal" data-video="V-8k8qCLjBQ">
-        <div class="ep-thumb"><img src="photos/yt-decide-commit.jpg" alt="Decide & Commit"></div>
+        <div class="ep-thumb"><img src="photos/yt-decide-commit.jpg" alt="Decide & Commit" loading="lazy"></div>
         <div class="ep-body">
           <h4>Decide &amp; Commit</h4>
           <div class="meta">GRINDcast · Watch on YouTube</div>
         </div>
       </div>
       <div class="ep-card reveal" data-video="9N9vVs7egNI">
-        <div class="ep-thumb"><img src="photos/yt-unbreakable.jpg" alt="Unbreakable"></div>
+        <div class="ep-thumb"><img src="photos/yt-unbreakable.jpg" alt="Unbreakable" loading="lazy"></div>
         <div class="ep-body">
           <h4>Unbreakable</h4>
           <div class="meta">On struggle &amp; the long game</div>
         </div>
       </div>
       <div class="ep-card reveal" data-video="GhsMAyc8da0">
-        <div class="ep-thumb"><img src="photos/yt-success-failure.jpg" alt="Success Requires Failure"></div>
+        <div class="ep-thumb"><img src="photos/yt-success-failure.jpg" alt="Success Requires Failure" loading="lazy"></div>
         <div class="ep-body">
           <h4>Success Requires Failure</h4>
           <div class="meta">Why the L's are the curriculum</div>
@@ -1451,7 +1574,10 @@
   <div class="container">
     <div class="impact-grid">
       <div class="impact-img reveal">
-        <img src="photos/event-7.png" alt="Steel City Impact event in Pittsburgh">
+        <picture>
+          <source srcset="photos/event-7.webp" type="image/webp">
+          <img src="photos/event-7.jpg" alt="Steel City Impact event in Pittsburgh" loading="lazy">
+        </picture>
       </div>
       <div class="impact-text reveal">
         <span class="eyebrow">04 — Steel City Impact</span>
@@ -1692,6 +1818,18 @@
       </div>
       <button type="submit" class="btn magnetic" style="margin-top: 8px; width: 100%;">Send the note</button>
     </form>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-mark">✓</div>
+      <span class="eyebrow">Note received</span>
+      <h3>Thanks — <em>we got it.</em></h3>
+      <p class="modal-sub">Simon's team replies to inquiries within 24 hours during business hours (8 AM – 8 PM ET, Mon–Sun). For urgent matters, reach out directly:</p>
+      <div class="success-direct">
+        <a href="mailto:simonarias@ariasagencies.com">simonarias@ariasagencies.com</a>
+        <span>·</span>
+        <a href="tel:14122352385">(412) 235-2385</a>
+      </div>
+      <button class="btn ghost magnetic" id="successClose" style="margin-top: 24px; width: 100%;">Close</button>
+    </div>
   </div>
 </div>
 
@@ -1776,10 +1914,45 @@
     }
   });
 
+  // MOBILE NAV
+  var mobileNavToggle = document.getElementById('mobileNavToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  function openMobileNav() {
+    document.body.classList.add('nav-open');
+    document.body.style.overflow = 'hidden';
+    mobileNavToggle.setAttribute('aria-expanded', 'true');
+    mobileNav.setAttribute('aria-hidden', 'false');
+  }
+  function closeMobileNav() {
+    document.body.classList.remove('nav-open');
+    document.body.style.overflow = '';
+    mobileNavToggle.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+  }
+  mobileNavToggle.addEventListener('click', function(){
+    if (document.body.classList.contains('nav-open')) closeMobileNav();
+    else openMobileNav();
+  });
+  // Close nav when an in-nav link is clicked (small delay so anchor scroll runs)
+  document.querySelectorAll('[data-mobile-link]').forEach(function(link){
+    link.addEventListener('click', function(){ setTimeout(closeMobileNav, 80); });
+  });
+
   // MODAL
   var modal = document.getElementById('modal');
   var modalClose = document.getElementById('modalClose');
-  function openModal() { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  var contactForm = document.getElementById('contactForm');
+  var modalSuccess = document.getElementById('modalSuccess');
+  function openModal() {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Reset to form view if previously left in success state
+    if (modalSuccess && modalSuccess.style.display === 'block') {
+      modalSuccess.style.display = 'none';
+      contactForm.style.display = '';
+      contactForm.reset();
+    }
+  }
   function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
 
   document.querySelectorAll('[data-trigger="modal"]').forEach(function(btn){
@@ -1788,13 +1961,22 @@
 
   modalClose.addEventListener('click', closeModal);
   modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { closeModal(); closeLightbox(); } });
-
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    closeModal();
-    setTimeout(function(){ alert("Thanks. Simon's team will be in touch within 24 hours."); }, 300);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { closeModal(); closeLightbox(); closeMobileNav(); }
   });
+
+  // Form submission — in-modal success state (no alert).
+  // PRODUCTION TODO: replace this block with a fetch() to your Formspree endpoint:
+  //   fetch('https://formspree.io/f/YOUR_FORM_ID', {
+  //     method: 'POST', body: new FormData(contactForm),
+  //     headers: { 'Accept': 'application/json' }
+  //   }).then(showSuccess).catch(showError);
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    contactForm.style.display = 'none';
+    modalSuccess.style.display = 'block';
+  });
+  document.getElementById('successClose').addEventListener('click', closeModal);
 
   // LIGHTBOX (image OR YouTube video)
   var lightbox = document.getElementById('lightbox');
