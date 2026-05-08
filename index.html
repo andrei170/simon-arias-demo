@@ -351,8 +351,13 @@
   .hero-overlay {
     position: absolute; inset: 0;
     background:
-      linear-gradient(180deg, rgba(15, 15, 15, 0.4) 0%, rgba(15, 15, 15, 0.78) 60%, rgba(15, 15, 15, 0.96) 100%),
-      linear-gradient(95deg, rgba(15, 15, 15, 0.65) 0%, rgba(15, 15, 15, 0.15) 100%);
+      linear-gradient(180deg, rgba(15, 15, 15, 0.78) 0%, rgba(15, 15, 15, 0.88) 60%, rgba(15, 15, 15, 0.97) 100%),
+      linear-gradient(95deg, rgba(15, 15, 15, 0.92) 0%, rgba(15, 15, 15, 0.65) 100%);
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(255, 79, 0, 0.06) 0%, transparent 60%);
+    pointer-events: none;
   }
   .hero-content {
     position: relative; z-index: 2;
@@ -538,6 +543,11 @@
   .work-img img {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .work-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(15, 15, 15, 0) 40%, rgba(15, 15, 15, 0.55) 100%);
+    pointer-events: none;
   }
   .work-card:hover .work-img img { transform: scale(1.06); }
   .work-tag {
@@ -1261,7 +1271,7 @@
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Keynote</span>
-          <img src="photos/horz-2.jpg" alt="Simon Arias speaking at a leadership event">
+          <img src="photos/about-2.jpg" alt="Simon Arias speaking portrait">
         </div>
         <div class="work-body">
           <h3>Speaking</h3>
@@ -1285,7 +1295,7 @@
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Mentorship</span>
-          <img src="photos/horz-3.jpg" alt="Mentorship session">
+          <img src="photos/about-1.jpg" alt="Simon Arias mentorship portrait">
         </div>
         <div class="work-body">
           <h3>Mentorship</h3>
@@ -1297,7 +1307,7 @@
       <article class="work-card reveal">
         <div class="work-img">
           <span class="work-tag">Press</span>
-          <img src="photos/horz-4.jpg" alt="Simon Arias press appearance">
+          <img src="photos/godaddy-portrait.jpg" alt="Simon Arias press headshot">
         </div>
         <div class="work-body">
           <h3>Press &amp; Media</h3>
@@ -1356,7 +1366,7 @@
   <div class="container">
     <div class="impact-grid">
       <div class="impact-img reveal">
-        <img src="photos/horz-5.jpg" alt="Steel City Impact event in Pittsburgh">
+        <img src="photos/event-7.png" alt="Steel City Impact event in Pittsburgh">
       </div>
       <div class="impact-text reveal">
         <span class="eyebrow">04 — Steel City Impact</span>
@@ -1407,29 +1417,10 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-head reveal">
-      <div><span class="num">05</span><span class="eyebrow">In the Field</span></div>
-      <h2>Twenty years, <em>compressed</em>.</h2>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item tall" data-img="photos/horz-1.jpg"><img src="photos/horz-1.jpg" alt="Simon Arias at a leadership event"></div>
-      <div class="gallery-item wide" data-img="photos/horz-2.jpg"><img src="photos/horz-2.jpg" alt="Simon speaking on stage"></div>
-      <div class="gallery-item" data-img="photos/yt-supposed-hard.jpg"><img src="photos/yt-supposed-hard.jpg" alt="GRINDcast set"></div>
-      <div class="gallery-item tall" data-img="photos/horz-5.jpg"><img src="photos/horz-5.jpg" alt="Steel City Impact event"></div>
-      <div class="gallery-item" data-img="photos/horz-3.jpg"><img src="photos/horz-3.jpg" alt="Mentorship session"></div>
-      <div class="gallery-item wide" data-img="photos/horz-4.jpg"><img src="photos/horz-4.jpg" alt="Press appearance"></div>
-      <div class="gallery-item" data-img="photos/yt-decide-commit.jpg"><img src="photos/yt-decide-commit.jpg" alt="Decide and Commit episode"></div>
-      <div class="gallery-item" data-img="photos/yt-loyal.jpg"><img src="photos/yt-loyal.jpg" alt="GRINDcast episode"></div>
-    </div>
-  </div>
-</section>
-
 <section id="contact">
   <div class="container">
     <div class="section-head reveal">
-      <div><span class="num">06</span><span class="eyebrow">Direct Line</span></div>
+      <div><span class="num">05</span><span class="eyebrow">Direct Line</span></div>
       <h2>Pittsburgh. Miami. <em>Virtual nationwide.</em></h2>
     </div>
     <div class="contact-grid">
@@ -1464,7 +1455,7 @@
 <section>
   <div class="container">
     <div class="section-head reveal">
-      <div><span class="num">07</span><span class="eyebrow">Common Questions</span></div>
+      <div><span class="num">06</span><span class="eyebrow">Common Questions</span></div>
       <h2>What people <em>actually</em> ask.</h2>
     </div>
     <div class="faq-list">
@@ -1657,18 +1648,16 @@
     document.querySelectorAll('.reveal').forEach(function(el){
       gsap.from(el, {
         opacity: 0,
-        y: 50,
-        duration: 1,
+        y: 30,
+        duration: 0.7,
         ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+        scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' }
       });
     });
 
-    document.querySelectorAll('.triad-cell').forEach(function(el, i){
-      gsap.from(el, {
-        opacity: 0, y: 50, duration: 1, delay: i * 0.18, ease: 'power3.out',
-        scrollTrigger: { trigger: '.triad', start: 'top 80%', toggleActions: 'play none none none' }
-      });
+    gsap.from('.triad-cell', {
+      opacity: 0, y: 30, duration: 0.7, stagger: 0.08, ease: 'power2.out',
+      scrollTrigger: { trigger: '.triad', start: 'top 95%', toggleActions: 'play none none none' }
     });
 
     document.querySelectorAll('.work-card').forEach(function(el, i){
